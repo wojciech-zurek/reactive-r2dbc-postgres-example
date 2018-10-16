@@ -1,4 +1,4 @@
-package eu.wojciechzurek.reactivepostgresexample
+package eu.wojciechzurek.reactiver2dbcpostgresexample
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ReactivePostgresExampleApplicationTests {
+class ReactiveR2DBCPostgresExampleApplicationTests {
 
 
 	@Test

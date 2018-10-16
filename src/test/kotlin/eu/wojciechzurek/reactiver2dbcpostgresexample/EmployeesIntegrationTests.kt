@@ -1,4 +1,4 @@
-package eu.wojciechzurek.reactivepostgresexample
+package eu.wojciechzurek.reactiver2dbcpostgresexample
 
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -1,4 +1,4 @@
-package eu.wojciechzurek.reactivepostgresexample
+package eu.wojciechzurek.reactiver2dbcpostgresexample
 
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration
 import io.r2dbc.postgresql.PostgresqlConnectionFactory
@@ -23,11 +23,11 @@ import javax.annotation.PostConstruct
 import javax.validation.constraints.NotBlank
 
 fun main(args: Array<String>) {
-    runApplication<ReactivePostgresExampleApplication>(*args)
+    runApplication<ReactiveR2DBCPostgresExampleApplication>(*args)
 }
 
 @SpringBootApplication
-class ReactivePostgresExampleApplication {
+class ReactiveR2DBCPostgresExampleApplication {
 
     @Bean
     fun routes(employeeHandler: EmployeeHandler) = router {
