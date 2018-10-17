@@ -2,6 +2,8 @@ package eu.wojciechzurek.reactiver2dbcpostgresexample
 
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.BDDMockito.given
+import org.mockito.Mock
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient
 import org.springframework.boot.test.context.SpringBootTest
@@ -17,13 +19,16 @@ class EmployeesIntegrationTests {
     @Autowired
     private lateinit var client: WebTestClient
 
+    @Mock
+    lateinit var employeeRepository: EmployeeRepository
+
     @Test
-    fun `when get all users then correct users`(){
+    fun `when get all users then correct users`() {
 
         val user = Employee(1, "Wojtek")
-        val usersFlux = Flux.just(user)
 
-        //BDDMockito.given("").willReturn(usersFlux)
+        val usersFlux = Flux.just(user)
+        given(employeeRepository.findAll()).willReturn(usersFlux)
 
         client.get()
                 .uri("/employees")
@@ -32,6 +37,6 @@ class EmployeesIntegrationTests {
                 .isOk
                 .expectBodyList(Employee::class.java)
                 .hasSize(1)
-                .contains()
+                .contains(user)
     }
 }
